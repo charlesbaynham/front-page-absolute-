@@ -16,5 +16,10 @@ exclude:
   - .nix-*
   - flake.nix
   - flake.lock
+  - frontpage.nix
   - result
   - README.md
+  - Dockerfile
+  - compose.yml
+  - compose.traefik.yml
+  - compose.watchtower.yml
