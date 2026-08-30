@@ -1,0 +1,18 @@
+name: Build frontpage LXC template
+
+# Deliberately NOT path-filtered, unlike homelab-infra's template workflows:
+# this whole repo is the service, so every commit to it should produce a new
+# template and therefore replace the container.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  lxc-template:
+    permissions:
+      contents: write
+    uses: charlesbaynham/nix-proxmox-cattle/.github/workflows/build-template.yml@v1
+    with:
+      release_branch: main

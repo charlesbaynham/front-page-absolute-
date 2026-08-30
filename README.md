@@ -33,12 +33,13 @@ The site will be available at `http://localhost:4000` when running the developme
 
 ## Deployment
 
-The site automatically deploys to GitHub Pages when changes are pushed to the `main` branch. The GitHub Actions workflow handles the build and deployment process.
+The site runs on the home lab as a [cattle container](https://github.com/charlesbaynham/nix-proxmox-cattle): every commit to `main` builds a Proxmox LXC template and publishes it as a release asset, the hypervisor polls for it, and the container is replaced. It is declared as `frontpage` in `homelab-infra`'s `services.yaml` and published at the apex, `https://houseabsolute.co.uk/`, through the border router.
 
-To enable GitHub Pages:
-1. Go to your repository settings
-2. Navigate to Pages
-3. Set Source to "GitHub Actions"
+There is no state, no secret and nothing to seed — the site is a store path baked into the image, so changing a word here is a new container.
+
+```bash
+nix build .#proxmoxLxcTemplate   # what CI publishes
+```
 
 ## Project Structure
 

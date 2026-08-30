@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "cattle": {
+      "locked": {
+        "lastModified": 1787640088,
+        "narHash": "sha256-xGU+jsjcS4CuLoXWrc2z6YnmdAKSrsE+vfz42Of8YJY=",
+        "ref": "v1",
+        "rev": "72c2592d732165ee3ad91bda8c3ab6a2de3fd334",
+        "revCount": 6,
+        "type": "git",
+        "url": "https://github.com/charlesbaynham/nix-proxmox-cattle"
+      },
+      "original": {
+        "ref": "v1",
+        "type": "git",
+        "url": "https://github.com/charlesbaynham/nix-proxmox-cattle"
+      }
+    },
     "flake-utils": {
       "inputs": {
         "systems": "systems"
@@ -36,6 +52,7 @@
     },
     "root": {
       "inputs": {
+        "cattle": "cattle",
         "flake-utils": "flake-utils",
         "nixpkgs": "nixpkgs"
       }
